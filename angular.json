@@ -23,9 +23,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "C:/Users/Freddy Villar/test2/node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": ["C:/Users/Freddy Villar/test2/node_modules/jquery/dist/jquery.min.js",
+             "C:/Users/Freddy Villar/test2/node_modules/bootstrap/dist/js/bootstrap.min.js",
+             "C:/Users/Freddy Villar/test2/node_modules/popper.js/dist/popper.min.js"]
           },
           "configurations": {
             "production": {
