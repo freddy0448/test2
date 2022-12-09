@@ -1,0 +1,28 @@
+<div class="navbar navbar-dark bg-dark alig-items-center">
+  <div class="col-md-12">
+    <h1 class="text-center text-white">Log in</h1>
+  </div>
+  
+</div>
+<body >
+  <form >
+    <div class="form-group">
+      <label for="fUser">Nombre de usuario</label><br>
+      <input type="User" class="form-control" id="fUser" name="fUser"><br>
+    </div>
+
+    <div class="form-group">
+      <label for="fPass">Contraseña</label><br>
+    <input type="password" class="form-control" id="fPass" name="fPass">
+    </div>
+    
+    <div>
+      <br>
+      <br>
+      <a href="https://getbootstrap.com/">
+        <button type="button" class="btn btn-outline-primary btn-large " style="width: 200px;">Iniciar sesión</button>
+      </a>
+    </div>
+    
+  </form>
+</body>
