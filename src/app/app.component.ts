@@ -1,21 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from './shared/user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  //singinArray: Singin[] =[{user: "freddy", password: "1234"},]  
-  value:number = 0;
-  model:any={};
-  model2:any={};
+export class AppComponent implements OnInit {
 
+user: any[] = [];
+  constructor(private userService: UserService) {}
 
-  addContact() : void{
-    this.contacts.push(this.model);
-
+  ngOnInit():void{
+this.userService.firestoreCollection.valueChanges({idField : 'id' }).subscribe(item=>{this.user = item;})
   }
+
+  onClick (nameInput: HTMLInputElement, lastnameInput: HTMLInputElement, emailInput: HTMLInputElement,)
+  {
+    if (nameInput.value && lastnameInput.value && emailInput.value) {
+      this.userService.addContact(nameInput.value, lastnameInput.value, emailInput.value);
+      nameInput.value="";
+      lastnameInput.value="";
+      emailInput.value = ""; 
+    }
+    else
+    {
+      alert('Debe de completar los campos');
+    }
+    
+  }
+
+  
 
   contacts = [
     {name : 'freddy', lastname: 'villar', email: '20211800@itla.edu.do'},
@@ -25,29 +40,12 @@ export class AppComponent {
   
   
   deleteContact(i: number) : void{
-    var answer = confirm('Está seguro que quiere borrar este contacto?')
-    if(answer)
-    {
-      this.contacts.splice(i,1);
-    }
   }
   
   updateContact() : void{
-    let i = this.value;
-    for (let j = 0; j < this.contacts.length; j++) {
-      if (i == j) {
-        this.contacts[i] = this.model2;
-        this.model2= {};
-      }
-      
-    }
   }
   
   editContact(i: number) : void{
-    this.model2.name =  this.contacts[i].name;
-    this.model2.lastname =  this.contacts[i].lastname;
-    this.model2.email =  this.contacts[i].email;
-    this.value=i;
   }
 
 }
