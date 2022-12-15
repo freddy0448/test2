@@ -29,16 +29,6 @@ this.userService.firestoreCollection.valueChanges({idField : 'id' }).subscribe(i
     }
     
   }
-
-  
-
-  contacts = [
-    {name : 'freddy', lastname: 'villar', email: '20211800@itla.edu.do'},
-    {name : 'alfonso', lastname: 'cruz', email: 'acruz@itla.edu.do'},
-    {name : 'chris', lastname: 'olivieri', email: 'olivieri@itla.edu.do'}
-  ]; 
-  
-  
   deleteContact(i: number) : void{
   }
   
@@ -46,6 +36,16 @@ this.userService.firestoreCollection.valueChanges({idField : 'id' }).subscribe(i
   }
   
   editContact(i: number) : void{
+  }
+
+  onUpdate(id:string, newName:string, newLastname:string, newEmail:string )
+  {
+    this.userService.updateContact(id, newName, newLastname, newEmail);
+  }
+
+  onDelete(id:string)
+  {
+    this.userService.deleteContact(id);
   }
 
 }

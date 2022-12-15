@@ -17,4 +17,13 @@ export class UserService {
     this.firestoreCollection.add({name, lastname, email});
   }
 
+  updateContact(id:string, newName:string, newLastname:string, newEmail:string)
+  {
+    this.firestoreCollection.doc(id).update({name:newName, lastname:newLastname, email:newEmail});
+  }
+
+  deleteContact(id:string){
+    this.firestoreCollection.doc(id).delete();
+  }
+
 }

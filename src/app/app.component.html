@@ -66,8 +66,8 @@
                         <td> {{item.lastname}} </td>
                         <td> {{item.email}} </td>
                         <td>
-                            <a (click)="editContact(i)" class="btn btn-success">Editar</a>
-                            <a (click)="deleteContact(i)" class="btn btn-warning">Borrar</a>
+                            <a (click)="onUpdate(item.id, item.name, item.lastname, item.email)" class="btn btn-success">Editar</a>
+                            <a (click)="onDelete(item.id)" class="btn btn-warning">Borrar</a>
                         </td>
                         
                     </tr>
